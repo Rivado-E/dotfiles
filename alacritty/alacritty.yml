@@ -1,0 +1,42 @@
+window:
+  padding:
+    x: 12
+    y: 12
+  dimensions:
+    columns: 0
+    lines: 0
+  decorations: full
+  startup_mode: Windowed
+scrolling:
+  history: 10000
+  multiplier: 1
+
+  offset:
+    x: 0
+    y: 0
+
+draw_bold_text_with_bright_colors: false
+animation: Linear
+
+font:
+  normal:
+    family: IosevkaTerm Nerd Font
+  size: 18
+
+window.dynamic_title: true
+
+cursor:
+  style: Block
+  unfocused_hollow: true
+  thickness: 0.25
+
+url:
+  program: xdg-open
+  args: []
+
+live_config_reload: true
+
+import:
+  # - ~/.config/alacritty/vscode_dark.yml
+  - ~/.config/alacritty/tokyo.yml
+

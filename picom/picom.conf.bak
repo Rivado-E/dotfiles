@@ -1,0 +1,12 @@
+# Enable shadows
+shadow = true;
+
+# Enable transparency
+opacity = 0.3;
+
+# Enable fading
+fade = true;
+fade-in-step = 0.1;
+fade-out-step = 0.1;
+
+vsync = true;

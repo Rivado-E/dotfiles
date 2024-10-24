@@ -1,0 +1,158 @@
+export PYTHONPATH=~/Scratch/Rockwell/backend
+export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.pyenv/shims:$PATH"
+export PATH="$PATH:/usr/local/go/bin:"
+export PATH="$PATH:/home/rivaldoe/.local/bin:"
+export PATH="$HOME/go/bin:$PATH"
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+setopt SHARE_HISTORY
+
+# Shell integrations
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+eval "$(zoxide init --cmd j zsh)"
+eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
+# eval "$(fnm completions --shell zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+alias cszar="ssh redah@login.zaratan.umd.edu"
+alias brightdown="sudo brightnessctl set 10%-"
+alias brightup="sudo brightnessctl set +10%"
+alias bat="bat --theme gruvbox-dark"
+
+alias ff="fastfetch"
+
+# git
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+
+# others
+alias df='df -h'
+alias du='du -sh'
+alias ls="ls --color"
+alias lsa='ls -lah'  # Long format with human-readable sizes
+alias mkcd='mkdir -p "$1" && cd "$1"'  # Create a directory and change into it
+alias v='vim'  
+alias nv="nvim"
+alias refresh="source ~/.zshrc"
+alias devshell="nix develop -c $SHELL"
+alias c="clear"
+alias update='sudo apt update && sudo apt upgrade' 
+alias ll='ls -alhF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias hms="home-manager switch"
+alias avenv="source .venv/bin/activate"
+
+# search
+alias grep='grep --color=auto'
+alias f='find . -type f -name'
+alias g='grep -rnw . -e'
+
+create-daily-file() {
+  # Check if the correct number of arguments is provided
+  if [ "$#" -ne 1 ]; then
+    echo "Usage: create_daily_file <file_prefix>"
+    return 1
+  fi
+
+  # Get the file prefix from the argument
+  local file_prefix="$1"
+
+  # Get the current date in YYYY-MM-DD format
+  local current_date
+  current_date=$(date +"%Y-%m-%d")
+
+  # Define the file name
+  local file_name="${file_prefix}_${current_date}.md"
+
+  # Create the file
+  touch "$file_name"
+
+  echo "File created: $file_name"
+}
+
+
+fcd() {
+    local dir
+    # Run fzf and capture the exit status
+    dir=$(find ~/Git ~/Scratch -mindepth 1 -maxdepth 1 -type d | fzf)
+    local status=$?
+
+    # Check if fzf was cancelled
+    if [ $status -eq 1 ]; then
+        echo "Operation cancelled."
+        return 1
+    fi
+
+    # If a directory was selected, change to that directory
+    if [ -n "$dir" ]; then
+        cd "$dir"
+    else
+        echo "No directory selected."
+    fi
+}
+
+
+
+# tmux
+alias ctmux='tmux new-session -s "$(basename "$PWD")"'
+fza(){
+    tmux attach-session -t $(tmux list-sessions -F "#{session_name}" | fzf)
+}
+
+# opam 
+[[ ! -r '/home/rivaldoe/.opam/opam-init/init.zsh' ]] || source '/home/rivaldoe/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
+
+# sdk
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
+fi
+
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Plugin history-search-multi-word loaded with investigating.
+zinit load zdharma-continuum/history-search-multi-word
+
+# Two regular plugins loaded without investigating.
+zinit light zsh-users/zsh-autosuggestions
+zinit light zdharma-continuum/fast-syntax-highlighting
+zinit light zsh-users/zsh-autosuggestions
+
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
+# Snippet
+# zinit snippet https://gist.githubusercontent.com/hightemp/5071909/raw/
+# Add in snippets
+
+# Check that the function `starship_zle-keymap-select()` is defined.
+# xref: https://github.com/starship/starship/issues/3418
+# type starship_zle-keymap-select >/dev/null || \
+#   {
+#     echo "Load starship"
+#     eval "$(/usr/local/bin/starship init zsh)"
+#   }
+
+# Load completions
+autoload -Uz compinit && compinit
+fastfetch
