@@ -10,6 +10,9 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 setopt SHARE_HISTORY
 
+# for tmux
+precmd(){ [ -n "$TMUX" ] && tmux rename-window "$(basename "$PWD")"; }
+
 # Shell integrations
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)

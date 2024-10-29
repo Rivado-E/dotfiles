@@ -805,28 +805,32 @@ require("lazy").setup({
 			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 		},
 	},
-	-- {
-	-- 	"Rivado-E/vivid",
-	-- 	name = "vivid",
-	-- 	priority = 1000,
-	--
-	-- 	-- transparent =true,
-	-- 	config = function()
-	-- 		-- require("my_vivid").setup({
-	-- 		-- 	transparent = true, -- removes the background
-	-- 		-- 	italic = {
-	-- 		-- 		strings = false,
-	-- 		-- 	},
-	-- 		-- 	underline = false, -- disables underline fonts
-	-- 		-- 	bold = false, -- disables bold fonts
-	-- 		-- })
-	-- 		vim.cmd.colorscheme("my_vivid")
-	-- 		vim.cmd([[highlight CursorLine guibg=#252525 guifg=NONE]])
-	-- 		vim.cmd.hi("Visual guibg=#252525")
-	-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-	-- 	end,
-	-- },
+	{
+		"Rivado-E/vivid",
+		name = "vivid",
+		priority = 1000,
+
+		-- transparent =true,
+		config = function()
+			-- require("my_vivid").setup({
+			-- 	transparent = true, -- removes the background
+			-- 	italic = {
+			-- 		strings = false,
+			-- 	},
+			-- 	underline = false, -- disables underline fonts
+			-- 	bold = false, -- disables bold fonts
+			-- })
+			vim.cmd.colorscheme("my_vivid")
+			-- vim.cmd([[highlight CursorLine guibg=#252525 guifg=NONE]])
+			-- vim.cmd.hi("Visual guibg=#252525")
+			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+			--
+			-- disable_background = true
+			-- transparent = true
+			-- vim.cmd.hi("Comment gui=none")
+		end,
+	},
 
 	-- {
 	-- 	"RaphaeleL/my_vivid",
@@ -891,26 +895,26 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = true,
 	},
-	{ -- You can easily change to a different colorscheme.
-		-- Change the name of the colorscheme plugin below, and then
-		-- change the command in the config to whatever the name of that colorscheme is.
-		--
-		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-		"folke/tokyonight.nvim",
-		priority = 1000, -- Make sure to load this before all the other start plugins.
-		init = function()
-			-- Load the colorscheme here.
-			-- Like many other themes, this one has different styles, and you could load
-			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight-night")
-
-			vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-			disable_background = true
-			transparent = true
-			vim.cmd.hi("Comment gui=none")
-		end,
-	},
+	-- { -- You can easily change to a different colorscheme.
+	-- 	-- Change the name of the colorscheme plugin below, and then
+	-- 	-- change the command in the config to whatever the name of that colorscheme is.
+	-- 	--
+	-- 	-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
+	-- 	"folke/tokyonight.nvim",
+	-- 	priority = 1000, -- Make sure to load this before all the other start plugins.
+	-- 	init = function()
+	-- 		-- Load the colorscheme here.
+	-- 		-- Like many other themes, this one has different styles, and you could load
+	-- 		-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+	-- 		vim.cmd.colorscheme("tokyonight-night")
+	--
+	-- 		vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	-- 		vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+	-- 		disable_background = true
+	-- 		transparent = true
+	-- 		vim.cmd.hi("Comment gui=none")
+	-- 	end,
+	-- },
 
 	-- Highlight todo, notes, etc in comments
 	{
