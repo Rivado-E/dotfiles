@@ -34,7 +34,7 @@ config.colors = {
 	-- background = " #181818",
 }
 
-config.window_background_opacity = 0.69 + 0.0420 + 0.16 --[[ + 0.13 ]]
+-- config.window_background_opacity = 0.69 + 0.0420 + 0.09 --[[ + 0.13 ]]
 -- config.color_scheme = "One Dark (Gogh)"
 -- config.color_scheme = "Vs Code Dark+ (Gogh)"
 -- config.color_scheme = "Vs Code Dark+ (Gogh)"

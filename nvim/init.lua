@@ -33,7 +33,12 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 
 -- keymaps
+
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Terminal
+vim.keymap.set("n", "<A-d>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle floating terminal" })
+vim.keymap.set("t", "<A-d>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle floating terminal" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
