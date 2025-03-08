@@ -6,6 +6,8 @@ alias e="nvim"
 alias v="vim"
 alias nv="nvim"
 alias zshconfig="nv ~/.zshrc"
+alias lls="ls -d -1 "$PWD"/{*,.*}"
+# alias lls ls -d -1 "$PWD"/{*,.*
 
 # ----------------------------
 # System Navigation and Directory Management
@@ -38,6 +40,7 @@ alias ls="exa"
 alias lt="exa --tree"
 alias nls="exa --icons"
 alias n3="exa --tree --icons"
+alias lal="ls -al"
 alias lsa='ls -lah'  # Long format with human-readable sizes
 alias ll='ls -alhF'
 alias la='ls -A'
@@ -101,7 +104,8 @@ alias show_options='shopt'
 # ----------------------------
 # Miscellaneous
 # ----------------------------
-alias ff="fastfetch"
+# alias ff="fastfetch"
+alias ff="fastfetch -s Title:Separator:OS:Host:Kernel:Uptime:Packages:Shell:Display:DE:WM:WMTheme:Theme:Icons:Terminal:CPU:GPU:Memory:Break:Colors --ds-force-drm"
 alias bat="bat --theme gruvbox-dark"
 alias brightdown="sudo brightnessctl set 10%-"
 alias brightup="sudo brightnessctl set +10%"

@@ -1,5 +1,5 @@
-export PATH="$HOME/.pyenv/bin:$PATH"
-export PATH="$HOME/.pyenv/shims:$PATH"
+# export PATH="$HOME/.pyenv/bin:$PATH"
+# export PATH="$HOME/.pyenv/shims:$PATH"
 export PATH="$PATH:/usr/local/go/bin:"
 export PATH="$PATH:/home/rivaldoe/.local/bin:"
 export PATH="$HOME/go/bin:$PATH"
