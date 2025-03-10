@@ -5,20 +5,32 @@ vim.g.maplocalleader = " "
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Terminal
-vim.keymap.set("n", "<A-d>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle floating terminal" })
-vim.keymap.set("t", "<A-d>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle floating terminal" })
+-- vim.keymap.set("n", "<leader>tt", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle floating terminal" })
+vim.keymap.set("n", "<leader>tt", "<cmd>FloatermToggle<CR>", { desc = "Toggle floating terminal" })
+vim.keymap.set("t", "<leader>tt", "<cmd>FloatermToggle<CR>", { desc = "Toggle floating terminal" })
 
+-- moving faster
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "<C-f>", "<C-f>zz")
+vim.keymap.set("n", "<C-b>", "<C-b>zz")
+
+-- Terminal
+vim.keymap.set("n", "<A-d>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle floating terminal", noremap = true, silent = true })
+vim.keymap.set("t", "<A-d>", "<cmd>Lspsaga term_toggle<CR>", { desc = "Toggle floating terminal", noremap = true, silent = true })
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
+vim.keymap.set("n", "<leader>ls", "<cmd>LspStop<CR>", { desc = "LspStop" })
+
 -- Terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Enable spell checking
-vim.opt.spell = true
+-- vim.opt.spell = true
 vim.opt.spelllang = { 'en_us' }
 
 -- Key mappings for spell checking
@@ -43,8 +55,8 @@ vim.keymap.set('n', ']s', '<cmd>normal! ]s<CR>', { desc = 'Next misspelled word'
 -- vim.keymap.set("n", "<C-w>.", ":vertical:resize +5 <CR>", { desc = "vertical grow" })
 -- vim.keymap.set("n", "<C-w>,", ":vertical:resize -5 <CR>", { desc = "vertical shrink" })
 
--- Tab navigation
 vim.api.nvim_set_keymap("v", "yy", '"+y', { noremap = true, silent = false })
+-- Tab navigation
 vim.keymap.set("n", "tp", ":tabprevious <CR>", { desc = "prev tab" })
 vim.keymap.set("n", "tn", ":tabnext <CR>", { desc = "next tab" })
 vim.keymap.set("n", "td", ":tabclose <CR>", { desc = "close tab" })
@@ -112,10 +124,10 @@ vim.keymap.set("n", "<C-h>", ":wincmd h<CR>", opts)
 vim.keymap.set("n", "<C-l>", ":wincmd l<CR>", opts)
 
 -- Tabs
-vim.keymap.set("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
-vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
-vim.keymap.set("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
-vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
+-- vim.keymap.set("n", "<leader>to", ":tabnew<CR>", opts) -- open new tab
+-- vim.keymap.set("n", "<leader>tx", ":tabclose<CR>", opts) -- close current tab
+-- vim.keymap.set("n", "<leader>tn", ":tabn<CR>", opts) --  go to next tab
+-- vim.keymap.set("n", "<leader>tp", ":tabp<CR>", opts) --  go to previous tab
 
 -- Toggle line wrapping
 vim.keymap.set("n", "<leader>lw", "<cmd>set wrap!<CR>", opts)
@@ -168,3 +180,8 @@ vim.keymap.set(
 	"<cmd>ObsidianBacklinks<CR>",
 	{ desc = "Show Obsidian Backlinks", noremap = true, silent = true }
 )
+
+-- oil
+vim.keymap.set("n", "_", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
+vim.keymap.set("n", "<leader>cl", "<CMD>Telescope colorscheme<CR>", { desc = "Open parent directory" })

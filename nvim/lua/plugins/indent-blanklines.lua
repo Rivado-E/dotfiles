@@ -21,6 +21,7 @@ return {
                 "neogitstatus",
                 "NvimTree",
                 "Trouble",
+                "ocaml",
             },
         },
     },

@@ -8,7 +8,7 @@ return {
 		"nvim-lua/plenary.nvim",
 
 		-- Optional
-		"hrsh7th /nvim-cmp",
+		-- "hrsh7th /nvim-cmp",
 		"nvim-telescope/telescope.nvim",
 		"nvim-treesitter",
 	},
@@ -17,7 +17,7 @@ return {
 			workspaces = {
 				{
 					name = "personal",
-					path = "~/Null/",
+					path = "~/Null/chantier/chronos/",
 				},
 			},
 		}

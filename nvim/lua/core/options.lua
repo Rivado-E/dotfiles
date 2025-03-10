@@ -24,3 +24,6 @@ vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
+vim.opt.termguicolors = true
+vim.opt.linebreak = true
+-- vim.opt.guicursor = "n-v-i-c:block-Cursor,v:underscore"
