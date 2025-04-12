@@ -1,0 +1,45 @@
+{
+  "editor.fontFamily": "iosevkaterm nerd font",
+  "terminal.integrated.fontSize": 33,
+  "editor.fontSize": 30,
+  "window.zoomLevel": -4,
+  "prettier.trailingComma": "all",
+  "editor.suggest.insertMode": "replace",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.minimap.enabled": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "update.showReleaseNotes": false,
+  "editor.lineNumbers": "relative",
+  "go.toolsManagement.autoUpdate": true,
+  // "workbench.colorCustomizations": {
+  //   "[Tokyo Night]": {
+  //     "editor.background": "#181818"
+  //   },
+  //   "[Rosé Pine (no italics)]": {
+  //     "editorCursor.background": "#52ad70"
+  //   }
+  // },
+  // "[jsonc]": {
+  //   "editor.defaultFormatter": "vscode.json-language-features"
+  // },
+  "editor.fontLigatures": true,
+  "git.autofetch": true,
+  "catppuccin.italicKeywords": false,
+  // "[json]": {
+  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // },
+  "editor.cursorWidth": 3,
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "editor.semanticHighlighting.enabled": true,
+  "editor.cursorBlinking": "solid",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.renderWhitespace": "all",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "vim.hlsearch": true,
+  "vim.leader": "<Space>",
+}
